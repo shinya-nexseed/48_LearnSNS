@@ -1,4 +1,32 @@
 <?php
+// フォームからデータを受け取る
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
+
+$errors = array();
+
+// データが送信された時に処理
+// $_POSTが空じゃない時 = データが送信された時
+if (!empty($_POST)) {
+    $name = $_POST['input_name'];
+
+    // ユーザー名の空チェック
+    if ($name == '') {
+        echo 'ユーザー名を入力してください';
+        $errors['name'] = '空';
+    }
+
+}
+
+$name = '';
+$email = 'hoge';
+isset($name); // true
+isset($hogehoge); // false
+empty($name); // true
+empty($fuga); // Undefined variable
+empty($email); // false 
+
 
 ?>
 <!DOCTYPE html>
@@ -15,11 +43,14 @@
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2 thumbnail">
                 <h2 class="text-center content_header">アカウント作成</h2>
-                <form method="POST" action="check.php" enctype="multipart/form-data">
+                <form method="POST" action="signup.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">ユーザー名</label>
                         <input type="text" name="input_name" class="form-control" id="name" placeholder="山田 太郎"
                             value="">
+                        <?php if(isset($errors['name']) && $errors['name'] == '空'): ?>
+                          ユーザー名を入力してください
+                        <?php endif; ?>
                     </div>
                     <div class="form-group">
                         <label for="email">メールアドレス</label>

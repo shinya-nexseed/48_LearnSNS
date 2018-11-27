@@ -1,0 +1,52 @@
+【PHP7大文法】
+①変数
+②配列
+③連想配列
+④条件分岐文（if, swicth）
+⑤繰り返し文（while, for, foreach）
+⑥スーパーグローバル変数
+⑦関数
+
+【データ型】
+①整数型 Integer int
+②小数点型 Float
+③文字列型 String str
+④論理型 Boolean bool
+⑤配列型 Array arr
+
+データの記述について）
+整数型は数字をそのまま記述（小数点型も一緒）
+文字列型は''もしくは""で囲って記述
+配列型はarray()で囲って記述
+論理型はtrueもしくはfalseで記述
+
+例）
+$変数名 = 値;
+$name = '30'; // 文字列型変数
+$age = 30; // 整数型変数
+$members = array('A', 'B', 'C'); // 配列型変数
+
+
+【エラー早見表】
+①syntax error
+  PHPの構文に合ってない書き方をした時
+②Undefined variable: 変数名
+  変数名が違うとき
+③Undefined offset: 数字
+  配列のoffset指定が違う時
+④Undefined index: 文字
+  連想配列のindexの指定が違う時
+
+
+
+
+
+
+
+
+
+
+
+
+
+

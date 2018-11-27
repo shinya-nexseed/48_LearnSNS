@@ -1,0 +1,22 @@
+formについて
+
+プログラマが理解しておくべきHTMLタグはformタグ周りだけ
+  form, input, textarea
+
+①form
+必須属性(attribute)が2つ
+action属性：データの送信先（ページの遷移先）
+method属性：データの送信方法（GET / POST）
+
+②input
+必須属性(attribute)が2つ
+type属性：入力欄の種類
+name属性：入力欄につける名前
+
+③textarea
+inputタグとほとんど一緒
+必須属性(attribute)が1つ
+name属性：入力欄につける名前
+
+
+
