@@ -1,4 +1,32 @@
 <?php
+session_start();
+require('../dbconnect.php'); // ①DB接続
+
+if (!isset($_SESSION['48_LearnSNS'])) {
+    header('Location: signup.php');
+    exit();
+}
+
+$name = $_SESSION['48_LearnSNS']['name'];
+$email = $_SESSION['48_LearnSNS']['email'];
+$password = $_SESSION['48_LearnSNS']['password'];
+$file_name = $_SESSION['48_LearnSNS']['file_name'];
+
+// ユーザー登録ボタンを押した時 = $_POSTが空じゃない時
+if (!empty($_POST)) {
+    // ②処理
+    $sql = 'INSERT INTO `users` SET `name`=?, `email`=?, `password`=?, `img_name`=?, `created`=NOW()';
+    $data = array($name, $email, password_hash($password, PASSWORD_DEFAULT), $file_name);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($data);
+    
+    // ③切断
+    $dbh = null;
+
+    // thanks.phpに遷移
+    header('Location: thanks.php');
+    exit();
+}
 
 ?>
 <!DOCTYPE html>
@@ -16,22 +44,22 @@
                 <h2 class="text-center content_header">アカウント情報確認</h2>
                 <div class="row">
                     <div class="col-xs-4">
-                        <img src="../user_profile_img/misae.png" class="img-responsive img-thumbnail">
+                        <img src="../user_profile_img/<?php echo htmlspecialchars($file_name) ?>" class="img-responsive img-thumbnail">
                     </div>
                     <div class="col-xs-8">
                         <div>
                             <span>ユーザー名</span>
-                            <p class="lead">野原みさえ</p>
+                            <p class="lead"><?php echo htmlspecialchars($name); ?></p>
                         </div>
                         <div>
                             <span>メールアドレス</span>
-                            <p class="lead">misae@nohara.com</p>
+                            <p class="lead"><?php echo htmlspecialchars($email); ?></p>
                         </div>
                         <div>
                             <span>パスワード</span>
                             <p class="lead">●●●●●●●●</p>
                         </div>
-                        <form method="POST" action="thanks.php">
+                        <form method="POST" action="check.php">
                             <a href="signup.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;戻る</a> | 
                             <input type="hidden" name="action" value="submit">
                             <input type="submit" class="btn btn-primary" value="ユーザー登録">
