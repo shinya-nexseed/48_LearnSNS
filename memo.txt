@@ -1,0 +1,28 @@
+POST
+  formタグのmethodがPOSTに指定されているとき
+
+GET
+  URLを入力してアクセスするとき
+  aタグで指定したURLにアクセスするとき
+  header関数で指定したURLにアクセスするとき
+  formタグのmethodがGETに指定されているとき
+
+
+DELETE文
+ほとんどSELECT文と一緒
+SELECT カラム名 FROM テーブル名 WHERE レコード取得条件
+SELECT * FROM users WHERE id=3
+
+結合の例
+SELECT f.*, u.name FROM feeds AS f LEFT JOIN users AS u ON 結合条件 WHERE 1
+
+文
+DELETE FROM テーブル名 WHERE レコード条件
+DELETE FROM feeds WHERE id = ?
+
+INSERT文
+SET句  ：INSERT INTO テーブル名 SET カラム名1 = 値1, カラム名2 = 値2 ...
+VALUE句：INSERT INTO テーブル名 (カラム名1, カラム名2) VALUES (値1, 値2)
+
+UPDATE文
+INSERTとSELECTの組み合わせ

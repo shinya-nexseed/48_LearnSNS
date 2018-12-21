@@ -1,0 +1,45 @@
+Create : INSERT
+Read   : SELECT ←
+Update : UPDATE
+Delete : DELETE
+
+
+
+SELECT * FROM `users` WHERE `id` = ?
+
+SELECT id,name,email,password FROM `users` WHERE `id` = ?
+SELECT * FROM `users` WHERE `id` = 4
+
+SELECT文の文法
+SELECT ② FROM ① WHERE ③
+
+①テーブル名
+②カラム名（*はすべてという意味）
+③レコードの取得条件
+
+
+SELECT `f`.*, `u`.`name`, `u`.`img_name` FROM `feeds` AS `f` LEFT JOIN `users` AS `u` ON `f`.`user_id` = `u`.`id`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

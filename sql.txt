@@ -1,0 +1,8 @@
+縦横に全部
+SELECT * FROM `feeds` WHERE 1
+
+条件付き
+SELECT * FROM `feeds` WHERE `id` = 1
+
+テーブル結合 JOIN句
+SELECT * FROM `feeds` LEFT JOIN `users` ON feeds.`user_id`=users.`id` WHERE 1
